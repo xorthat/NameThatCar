@@ -1,4 +1,4 @@
-NameThatCar: 16-825 Project
+NameThatCar: 16-824 Project
 ==========================
 
 Authors: jelake, sbokhari
