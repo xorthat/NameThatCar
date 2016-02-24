@@ -13,13 +13,13 @@ enum CarMake {
 using namespace std;
 
 //Prototypes
-void createNewFileFromOldFile(string, string, string);
+void createNewFileFromOldFile(string, string);
 
 CarMake convertToNewCategory(const int);
 
 int main() {
     try {
-        createNewFileFromOldFile("/resources/", "train_perfect_preds_org.txt", "train_perfect_preds_new.txt");
+        createNewFileFromOldFile("train_perfect_preds_org.txt", "train_perfect_preds_new.txt");
     }
     catch (exception e) {
         cerr << e.what() << endl;
@@ -28,12 +28,12 @@ int main() {
     return EXIT_SUCCESS;
 }
 
-void createNewFileFromOldFile(string fullPath, string oldFileName, string newFileName) {
-    ifstream oldFile(fullPath + oldFileName);
+void createNewFileFromOldFile(string oldFileName, string newFileName) {
+    ifstream oldFile(oldFileName);
     ofstream newFile;
     string line;
     int oldValue, newValue;
-    newFile.open(fullPath + newFileName);
+    newFile.open(newFileName);
     while (getline(oldFile, line)) {
         oldValue = stoi(line);
         newValue = convertToNewCategory(oldValue);
