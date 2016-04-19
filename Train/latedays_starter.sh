@@ -27,7 +27,7 @@ fi
 #-eo means that they are joined
 #-v passes a command line argument into latedays_driver.sh (so the driver knows what to execute!)
 
-LOGDIR=/home/xiaolonw/STOutputs/
+LOGDIR=/home/${USER}/STOutputs/
 
 if [ ! -d ${LOGDIR} ]; then
     echo "Directory ${LOGDIR} not present, creating it"
@@ -37,4 +37,4 @@ fi
 LOGSTRING="-e ${LOGDIR} -o ${LOGDIR} -j oe"
 
 
-  qsub -q gpujobs-16824 -N ${PROCSTRING} -l walltime=${WT}:00:00 -l nodes=1:ppn=8 ${LOGSTRING} -v PROCSTRING=${PROCSTRING} latedays_driver_train.sh
+  qsub -q gpujobs-16824 -N ${PROCSTRING} -l walltime=${WT}:00:00 -l nodes=compute-0-35 ${LOGSTRING} -v PROCSTRING=${PROCSTRING} latedays_driver_train.sh

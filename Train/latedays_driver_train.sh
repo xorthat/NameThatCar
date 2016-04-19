@@ -14,12 +14,9 @@ fi
 OUTPUT_FILER=/home/${USER}/STOutputs/python.${PROCSTRING}.${HOSTNAME}.$$.output
 echo ${OUTPUT_FILER}
 touch ${OUTPUT_FILER}
-
-cd /home/xiaolonw/cnncode/caffe-coco/coco_scripts/py_test
+cd /home/${USER}/NameThatCar/Train
 
 echo $$
 nice python  "${PROCSTRING}" &> $OUTPUT_FILER
-
-echo "You get 200% accuracy!"
 
 
